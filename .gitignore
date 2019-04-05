@@ -1,5 +1,9 @@
+#Settings local
+local_settings.py
+
 #PyCharm
 .idea/
+djangoecommerce/static/
 
 #venv
 venvdjango/
