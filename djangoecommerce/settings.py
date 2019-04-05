@@ -1,3 +1,4 @@
+
 """
 Django settings for djangoecommerce project.
 
@@ -38,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'core'
+    'core',
 ]
 
 MIDDLEWARE = [

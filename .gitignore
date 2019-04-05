@@ -1,5 +1,8 @@
-#Pycharm
-.idea
+#PyCharm
+.idea/
+
+#venv
+venvdjango/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
