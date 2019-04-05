@@ -15,8 +15,12 @@ class Categoria(models.Model):
         verbose_name_plural = 'Categorias'
         ordering = ['name']
 
+    def __str__(self):
+        return self.name
 
-class Servicos(models.Model):
+
+class Servico(models.Model):
+
     name = models.CharField('Nome', max_length=100)
     slug = models.SlugField('Identificador', max_length=100)
     categoria = models.ForeignKey('catalogo.Categoria', on_delete=models.CASCADE)
@@ -30,3 +34,6 @@ class Servicos(models.Model):
         verbose_name = 'Serviço'
         verbose_name_plural = 'Serviços'
         ordering = ['name']
+
+    def __str__(self):
+        return self.name
