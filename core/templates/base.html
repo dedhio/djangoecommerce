@@ -31,18 +31,18 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Inicio
+            <a class="nav-link" href="{% url 'index' %}">Inicio
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sobre</a>
+            <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Serviços</a>
+            <a class="nav-link" href="{% url 'servicos' %}">Serviços</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contato</a>
+            <a class="nav-link" href="{% url 'contato' %}">Contato</a>
           </li>
         </ul>
       </div>
