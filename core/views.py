@@ -3,9 +3,14 @@ from django.http import HttpResponse
 
 
 def index(request):
-    texts = ['Lorem ipsun solon',]
-    context = {
-        'title':'Django E-Commerce',
-        'texts': texts
-    }
-    return render(request, 'index.html', context)
+    return render(request, 'index.html')
+
+def sobre(request):
+    return render(request, 'sobre.html')
+
+def servicos(request):
+    return render(request, 'servicos.html')
+
+def contato(request):
+    return render(request, 'contato.html')
+
