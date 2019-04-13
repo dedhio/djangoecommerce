@@ -7,9 +7,9 @@
 
         <h1 class="my-4">Django</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
+            {% for categoria in categorias %}
+                <a href="#" class="list-group-item">{{ categoria.name }}</a>
+            {% endfor %}
         </div>
 
       </div>
