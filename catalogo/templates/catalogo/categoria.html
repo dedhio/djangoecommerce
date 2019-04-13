@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    {{categoria}} | {{ block.super }}
+    {{ categoria }} | {{ block.super }}
 {% endblock %}
 
 {% block container %}
@@ -11,10 +11,10 @@
             {% for servico in servicos %}
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <a href="{{ servico.get_absolute_url }}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">{{ servico.name }}</a>
+                  <a href="{{ servico.get_absolute_url }}">{{ servico.name }}</a>
                 </h4>
                 <h5>{{ servico.preco }}</h5>
                 <p class="card-text">{{ servico.descricao|linebreaks }}</p>

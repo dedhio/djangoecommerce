@@ -24,6 +24,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('sobre/', views.sobre, name='sobre'),
     path('contato', views.contato, name='contato'),
-    path('servicos/', include('catalogo.urls', namespace='catalogo'))
+    path('catalogo/', include('catalogo.urls', namespace='catalogo'))
 
 ]

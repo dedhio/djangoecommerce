@@ -40,3 +40,6 @@ class Servico(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('catalogo:servico', kwargs={'slug': self.slug})

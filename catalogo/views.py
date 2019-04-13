@@ -16,3 +16,10 @@ def categoria(request, slug):
         'servicos': Servico.objects.filter(categoria=categoria)
     }
     return render(request, 'catalogo/categoria.html', context)
+
+
+def servico(request, slug):
+    context = {
+        'servico': Servico.objects.get(slug=slug)
+    }
+    return render(request, 'catalogo/servico.html', context)
