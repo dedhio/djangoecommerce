@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.urls import reverse
 
 
 class Categoria(models.Model):
@@ -18,6 +19,8 @@ class Categoria(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('catalogo:categoria', kwargs={'slug': self.slug})
 
 class Servico(models.Model):
 
