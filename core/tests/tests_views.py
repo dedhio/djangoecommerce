@@ -16,6 +16,6 @@ class IndexViewTestCase(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
 
-    def test_status_code(self):
+    def test_template_used(self):
         response = self.client.get(self.url)
         self.assertTemplateUsed(response, 'index.html')
