@@ -1,6 +1,11 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.conf import settings
 
 from catalogo.models import Categoria
+
+from .forms import ContatoForm
 
 
 def index(request):
@@ -13,5 +18,14 @@ def sobre(request):
 
 
 def contato(request):
-    return render(request, 'contato.html')
+    success = False
+    form = ContatoForm(request.POST or None)
+    if form.is_valid():
+        form.send_email()
+        success = True
+    context = {
+        'form': form,
+        'succes': success
+    }
+    return render(request, 'contato.html', context)
 
