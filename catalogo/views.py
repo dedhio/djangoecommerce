@@ -1,21 +1,34 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.views import generic
+
 from .models import Servico, Categoria
 
 
-def servicos(request):
-    context = {
-        'servicos': Servico.objects.all()
-    }
-    return render(request, 'catalogo/servicos.html', context)
+class ServicosListView(generic.ListView):
+
+    model = Servico
+    template_name = 'catalogo/servicos.html'
+    context_object_name = 'servicos'
 
 
-def categoria(request, slug):
-    categoria = Categoria.objects.get(slug=slug)
-    context = {
-        'categoria': categoria,
-        'servicos': Servico.objects.filter(categoria=categoria)
-    }
-    return render(request, 'catalogo/categoria.html', context)
+servicos = ServicosListView.as_view()
+
+
+class CategoriaListView(generic.ListView):
+
+    template_name = 'catalogo/categoria.html'
+    context_object_name = 'servicos'
+
+    def get_queryset(self):
+        return Servico.objects.filter(categoria__slug=self.kwargs['slug'])
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoriaListView, self).get_context_data(**kwargs)
+        context['categoria'] = get_object_or_404(Categoria, slug=self.kwargs['slug'])
+        return context
+
+
+categoria = CategoriaListView.as_view()
 
 
 def servico(request, slug):

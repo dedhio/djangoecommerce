@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block container %}
-            <h1 class="my-4">{{ categoria }}</h1>
+    <h1 class="my-4">{{ categoria }}</h1>
 
-            <div class="row">
-            {% for servico in servicos %}
+    <div class="row">
+        {% for servico in servicos %}
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="{{ servico.get_absolute_url }}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
@@ -24,8 +24,8 @@
               </div>
             </div>
           </div>
-            {% endfor %}
+        {% endfor %}
 
-        </div>
+    </div>
 
 {% endblock %}
