@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.views.generic import TemplateView
+from django.contrib.auth import authenticate, forms
 
-from catalogo.models import Categoria
 
 from .forms import ContatoForm
 
@@ -15,9 +14,12 @@ class IndexView(TemplateView):
 index = IndexView.as_view()
 
 
-def index(request):
-    context = {'categorias': Categoria.objects.all()}
-    return render(request, 'index.html', context)
+class LoginView(TemplateView):
+
+    template_name = 'login.html'
+
+
+login = LoginView.as_view()
 
 
 def sobre(request):
