@@ -9,7 +9,7 @@ class ServicosListView(generic.ListView):
     model = Servico
     template_name = 'catalogo/servicos.html'
     context_object_name = 'servicos'
-    paginate_by = 3
+    paginate_by = 2
 
 
 servicos = ServicosListView.as_view()
@@ -19,7 +19,7 @@ class CategoriaListView(generic.ListView):
 
     template_name = 'catalogo/categoria.html'
     context_object_name = 'servicos'
-    paginate_by = 3
+    paginate_by = 2
 
     def get_queryset(self):
         return Servico.objects.filter(categoria__slug=self.kwargs['slug'])

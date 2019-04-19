@@ -24,4 +24,10 @@ class ServicosTestCase(TestCase):
         response = self.client.get(self.url)
         self.assertTrue('servicos' in response.context)
         servicos = response.context['servicos']
-        self.assertEquals(servicos.count(), 10)
+        self.assertEquals(servicos.count(), 2)
+        paginator = response.context['paginator']
+        self.assertEquals(paginator.num_pages, 5)
+
+    def test_page_notfound(self):
+        response = self.client.get('{}?page=6'.format(self.url))
+        self.assertEquals(response.status_code, 404)
