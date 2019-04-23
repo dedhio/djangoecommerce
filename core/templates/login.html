@@ -10,6 +10,11 @@
 <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
+        {% for error in form.non_field_errors %}
+                <div class="alert-danger">
+                {{ error }}
+                </div>
+            {% endfor %}
           <div class="card-body">
             <h5 class="card-title text-center">Entrar</h5>
             <form class="form-signin" method="post">
@@ -18,16 +23,13 @@
                   {% for error in field.errors %}
                 <span class="invalid-feedback">{{ error }}</span>
             {% endfor %}
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-                <label for="{{ form.username.auto_id }}">{{ form.username.labe }}</label>
-                  {% render_field form.username class="form-control" %}
+                {% render_field form.username class="form-control" %}
+                <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
               </div>
 
               <div class="form-label-group {% if field.password.errors %} is-invalid {% endif %}">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+                {% render_field form.password class="form-control" %}
                 <label for="{{ form.password.auto_id }}">{{ form.password.label }}</label>
-                  {% render_field form.password class="form-control" %}
-
               </div>
 
               <div class="custom-control custom-checkbox mb-3">

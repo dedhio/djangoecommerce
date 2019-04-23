@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from django.contrib.auth import authenticate, forms
+from django.contrib.auth import authenticate, forms, views
 
 
 from .forms import ContatoForm
@@ -12,14 +12,6 @@ class IndexView(TemplateView):
 
 
 index = IndexView.as_view()
-
-
-class LoginView(TemplateView):
-
-    template_name = 'login.html'
-
-
-login = LoginView.as_view()
 
 
 def sobre(request):
