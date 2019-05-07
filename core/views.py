@@ -1,9 +1,13 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
-from django.contrib.auth import authenticate, forms, views
-
+from django.views.generic import TemplateView, CreateView
+from django.urls import reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
 
 from .forms import ContatoForm
+
+
+User = get_user_model()
 
 
 class IndexView(TemplateView):
@@ -12,6 +16,17 @@ class IndexView(TemplateView):
 
 
 index = IndexView.as_view()
+
+
+class NovaContaView(CreateView):
+
+    form_class = UserCreationForm
+    template_name = 'nova_conta.html'
+    model = User
+    success_url = reverse_lazy('login')
+
+
+nova_conta = NovaContaView.as_view()
 
 
 def sobre(request):

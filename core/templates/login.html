@@ -20,9 +20,9 @@
             <form class="form-signin" method="post">
             {% csrf_token %}
               <div class="form-label-group {% if field.username.errors %} is-invalid {% endif %}">
-                  {% for error in field.errors %}
-                <span class="invalid-feedback">{{ error }}</span>
-            {% endfor %}
+                    {% for error in field.errors %}
+                        <span class="invalid-feedback">{{ error }}</span>
+                    {% endfor %}
                 {% render_field form.username class="form-control" %}
                 <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
               </div>
