@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     'core',
     'catalogo',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -146,6 +147,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_URL = 'logout'
+AUTH_USER_MODEL = 'accounts.User'
 
 try:
     from .local_settings import *

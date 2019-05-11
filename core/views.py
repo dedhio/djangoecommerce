@@ -18,17 +18,6 @@ class IndexView(TemplateView):
 index = IndexView.as_view()
 
 
-class NovaContaView(CreateView):
-
-    form_class = UserCreationForm
-    template_name = 'nova_conta.html'
-    model = User
-    success_url = reverse_lazy('login')
-
-
-nova_conta = NovaContaView.as_view()
-
-
 def sobre(request):
     return render(request, 'sobre.html')
 

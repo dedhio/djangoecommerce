@@ -27,7 +27,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('sobre/', views.sobre, name='sobre'),
     path('contato', views.contato, name='contato'),
-    path('registro', views.nova_conta, name='nova_conta'),
-    path('catalogo/', include('catalogo.urls', namespace='catalogo'))
+    path('catalogo/', include('catalogo.urls', namespace='catalogo')),
+    path('conta/', include('accounts.urls', namespace='accounts'))
 
 ]
