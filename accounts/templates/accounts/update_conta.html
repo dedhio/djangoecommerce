@@ -1,0 +1,26 @@
+{% extends "accounts/minha_conta.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+    Alterar dados | {{ block.super }}
+{% endblock %}
+
+{% block accounts_container %}
+    <h2>Alterar dados</h2>
+        <form class="form-horizontal" action="" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group{% if field.errors %} has-error{% endif %}">
+            <label for="{{ field.auto_id }}" class="col-md-3 control-label">{{ field.name }}</label>
+            <div class="col-md-9">
+                {%  render_field field class='form-control' %}
+                {% for error in field.errors %}
+                    <span class="invalid-feedback">{{ error }}</span>
+                {% endfor %}
+            </div>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+{% endblock %}

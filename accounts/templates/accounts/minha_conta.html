@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Minha conta | {{ block.super }}{% endblock %}
+
+{% block container %}
+    <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Minha conta</li>
+            </ol>
+    </nav>
+
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <div class="list-group">
+            <a href="#" class="list-group-item active">Minha Conta</a>
+            <a href="{% url 'accounts:atualiza_user' %}" class="list-group-item">Alterar Dados</a>
+            <a href="#" class="list-group-item">Alterar Senha</a>
+        </div>
+
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+          {% block accounts_container %}
+                <h1 class="my-4">Django</h1>
+          {% endblock %}
+
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+{% endblock %}
