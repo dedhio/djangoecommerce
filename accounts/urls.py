@@ -7,5 +7,6 @@ app_name = 'accounts'
 urlpatterns = [
     path('', views.minha_conta, name='minha_conta'),
     path('registro/', views.register, name='register'),
-    path('atualizaUsuario/', views.atualiza_user, name='atualiza_user')
+    path('atualizaUsuario/', views.atualiza_user, name='atualiza_user'),
+    path('atualizaSenha/', views.atualiza_password, name='atualiza_senha')
 ]
