@@ -42,6 +42,10 @@ class AtualizaSenhaView(LoginRequiredMixin, FormView):
         kwargs['user'] = self.request.user
         return kwargs
 
+    def form_valid(self, form):
+        form.save()
+        return super(AtualizaSenhaView, self).form_valid(form)
+
 
 minha_conta = MinhaContaView.as_view()
 register = RegisterView.as_view()
