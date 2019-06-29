@@ -10,22 +10,7 @@
     <h1 class="my-4">Servicos</h1>
     <div class="row">
         {% for servico in servicos %}
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="{{ servico.get_absolute_url }}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="{{ servico.get_absolute_url }}">{{ servico.name }}</a>
-                </h4>
-                <h5>{{ servico.preco }}</h5>
-                <p class="card-text">{{ servico.descricao|linebreaks }}</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                  <a href="#" class="btn btn-success">Adicionar ao carrinho</a>
-              </div>
-            </div>
-          </div>
+            {% include 'catalogo/_servico.html' %}
         {% endfor %}
     </div>
     {% pagination request paginator page_obj %}

@@ -16,7 +16,7 @@
             <p class="card-text">{{ servico.descricao|linebreaks }}</p>
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
             4.0 stars
-              <a href="#" class="btn btn-success">Adicionar ao carrinho</a>
+              |<a href="{% url 'checkout:create_cart_item' servico.slug %}" class="btn btn-success">Adicionar ao carrinho</a>
           </div>
         </div>
         <!-- /.card -->
